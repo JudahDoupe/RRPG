@@ -1,5 +1,15 @@
 # RRPG (WIP name)
 
+## Content Structure
+#### Overview
+
+World -> Biomes -> Zones -> Interest Points
+
+Saga -> Quests -> Objectives
+
+NPC -> Interaction Meathods -> Objective Triggers
+
+
 
 ## Character Input
 
