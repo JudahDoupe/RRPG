@@ -81,26 +81,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Code\Politics\Factories\NationFactory.cs" />
-    <Compile Include="Assets\Code\Politics\Factories\TokenFactory.cs" />
-    <Compile Include="Assets\Code\Politics\Interfaces\IDamagable.cs" />
-    <Compile Include="Assets\Code\Politics\Managers\InputManager.cs" />
-    <Compile Include="Assets\Code\Politics\Managers\NationManager.cs" />
-    <Compile Include="Assets\Code\Politics\Managers\TurnManager.cs" />
-    <Compile Include="Assets\Code\Politics\Managers\UIManager.cs" />
-    <Compile Include="Assets\Code\Politics\Models\InfoSheet.cs" />
-    <Compile Include="Assets\Code\Politics\Models\Nation.cs" />
-    <Compile Include="Assets\Code\Politics\Models\Token.cs" />
-    <Compile Include="Assets\Code\Politics\Models\TokenTypes\City.cs" />
-    <Compile Include="Assets\Code\Politics\Models\TokenTypes\Military.cs" />
-    <Compile Include="Assets\Code\Politics\Models\TokenTypes\Resource.cs" />
-    <Compile Include="Assets\Code\Politics\Views\TokenView.cs" />
-    <Compile Include="Assets\Code\WorldGen\Directions.cs" />
-    <Compile Include="Assets\Code\WorldGen\IGeographicalFeature.cs" />
-    <Compile Include="Assets\Code\WorldGen\Map.cs" />
-    <Compile Include="Assets\Code\WorldGen\Mountain.cs" />
-    <Compile Include="Assets\Code\WorldGen\Tile.cs" />
-    <Compile Include="Assets\Code\WorldGen\WorldGenerator.cs" />
+    <Compile Include="Assets\Source\Characters\Player\Controller.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
