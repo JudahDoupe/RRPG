@@ -1,11 +1,13 @@
 RRPG (WIP name)
 ===============
 
+Character Input
+---------------
 
-TODO
+ - Race [Humans, Giants, Elves, Gnomes]
+ - Class [Warior, Bard, Craftsman, Royalty]
+ - Quest [Aggressive, Constructive, ??? ]
+
+Generators
 ----
 
- - character sheet
- - nation generation
- - map generation
- - quest generation
