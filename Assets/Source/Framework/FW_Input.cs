@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FW_Input : MonoBehaviour {
+public class FW_Input{
 
     public static FW_Input Instance = null;
 	void Awake () { if (Instance == null) Instance = new FW_Input();}

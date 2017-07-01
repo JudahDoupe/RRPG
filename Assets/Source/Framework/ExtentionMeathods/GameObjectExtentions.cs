@@ -2,10 +2,10 @@
 
 public static class GameObjectExtentions{
 
-	public static T GetComponentOrAdd<T>(this GameObject gameObject) where T : MonoBehaviour
+	public static T GetComponentOrAdd<T>(this GameObject gameObject) where T : Component
     {
         var component = gameObject.GetComponent<T>();
-        if (component == null) return component;
+        if (component != null) return component;
         else return gameObject.AddComponent<T>();
     }
 }

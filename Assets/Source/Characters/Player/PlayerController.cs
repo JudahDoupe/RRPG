@@ -4,23 +4,26 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-    public float SpeedMultiplier = 1;
+    public float SpeedMultiplier = 0.25f;
     public float Movement { get { return Input.GetAxis("Vertical") * SpeedMultiplier; } }
-
-
-    public float RotationMultiplier = 5;
+    public float RotationMultiplier = 2.5f;
     public float Rotation{ get{ return Input.GetAxis("Horizontal") * RotationMultiplier; } }
 
+    private Rigidbody _rb;
 
+    public void Start()
+    {
+        _rb = gameObject.GetComponentOrAdd<Rigidbody>();
+    }
 
-    public void Update()
+    public void FixedUpdate()
     {
         Move();
         Rotate();
     }
 	private void Move () {
-        gameObject.transform.Translate(0,0, Movement);
-	}
+        _rb.MovePosition(transform.position + transform.forward * Movement);
+    }
     private void Rotate()
     {
         gameObject.transform.Rotate(0,Rotation,0);
