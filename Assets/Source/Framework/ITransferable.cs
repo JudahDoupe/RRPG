@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IInterestPoint{
-    void Activate(GameObject player);
+public interface ITransferable{
+
+    ITransferable Transfer(GameObject newParent);
 }

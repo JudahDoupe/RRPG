@@ -580,9 +580,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 775871529}
+  - component: {fileID: 775871530}
+  - component: {fileID: 775871532}
   - component: {fileID: 775871528}
   - component: {fileID: 775871526}
-  - component: {fileID: 775871530}
   - component: {fileID: 775871531}
   - component: {fileID: 775871527}
   m_Layer: 0
@@ -685,6 +686,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &775871532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 775871525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 353de4fe1b4821c49917a220735515ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeObjectives: 0
+  completedObjectives: 0
 --- !u!1 &802904071
 GameObject:
   m_ObjectHideFlags: 0
@@ -697,6 +711,8 @@ GameObject:
   - component: {fileID: 802904074}
   - component: {fileID: 802904073}
   - component: {fileID: 802904072}
+  - component: {fileID: 802904078}
+  - component: {fileID: 802904077}
   m_Layer: 0
   m_Name: Sign
   m_TagString: Untagged
@@ -715,6 +731,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af3585aa92c5e7d4482aeb3a7691caf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objective: {fileID: 802904078}
+  player: {fileID: 775871525}
 --- !u!23 &802904073
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -780,6 +798,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &802904077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 802904071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56ef02fb0650a7b499f543d1a25273a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RewardText: 
+--- !u!114 &802904078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 802904071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7f25566f7a9a2a459ecac7605a18315, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NarativeImportance: 1
+  Title: CLICK THE SIGHN!!!
+  Resolved: 0
+  reward: {fileID: 802904077}
 --- !u!1 &986366986
 GameObject:
   m_ObjectHideFlags: 0

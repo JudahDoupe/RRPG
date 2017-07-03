@@ -84,7 +84,13 @@
     <Compile Include="Assets\Source\Framework\FW_Input.cs" />
     <Compile Include="Assets\Source\Framework\FW_MouceOver.cs" />
     <Compile Include="Assets\Source\Framework\FW_Physics.cs" />
+    <Compile Include="Assets\Source\Framework\ITransferable.cs" />
     <Compile Include="Assets\Source\Framework\Messangers\ClickMessanger.cs" />
+    <Compile Include="Assets\Source\Narative\Objectives\OBJ_ClickTheSign.cs" />
+    <Compile Include="Assets\Source\Narative\Objectives\Objective.cs" />
+    <Compile Include="Assets\Source\Narative\Objectives\RWD_Sword.cs" />
+    <Compile Include="Assets\Source\Narative\Objectives\Reward.cs" />
+    <Compile Include="Assets\Source\Narative\PersonalNarritive.cs" />
     <Compile Include="Assets\Source\World\InterestPoints\IInterestPoint.cs" />
     <Compile Include="Assets\Source\World\InterestPoints\Static\IP_SignPost.cs" />
   </ItemGroup>
