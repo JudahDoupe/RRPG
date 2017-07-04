@@ -15,19 +15,9 @@ public class OBJ_ClickTheSign : Objective
 
     public override Objective Transfer(GameObject newParent)
     {
-        var rtn = newParent.AddComponent<OBJ_ClickTheSign>(this);
+        var rtn = newParent.AddComponent(this);
         Destroy(this);
         return rtn;
-    }
-
-    public override bool IsResolved()
-    {
-        if (Resolved) return Resolved;
-
-        if (gameObject.GetComponent<PersonalNarritive>() != null)
-            return true;
-
-        return false;
     }
     public override void Resolve()
     {

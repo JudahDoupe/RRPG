@@ -7,13 +7,16 @@ public class PersonalNarritive : MonoBehaviour {
 
     public int activeObjectives = 0;
     public int completedObjectives = 0;
+
+    public GameObject objectiveStorage;
+
     void Update()
     {
         activeObjectives = Objectives.Count;
 
         foreach (Objective obj in Objectives)
         {
-            if (obj.IsResolved()){
+            if (obj.IsComplete()){
                 ResolveObjective(obj);
                 break;
             }
@@ -27,7 +30,7 @@ public class PersonalNarritive : MonoBehaviour {
         if (Objectives.Contains(obj) || obj == null) return false;
         Debug.Log("You Recieved Objective: " + obj.Title);
 
-        var newObj = obj.Transfer(gameObject);
+        var newObj = obj.Transfer(objectiveStorage);
         Objectives.Add(newObj);
 
         return true;

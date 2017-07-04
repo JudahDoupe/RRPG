@@ -8,12 +8,19 @@ public class Objective : MonoBehaviour{
     public string Title = "";
     public bool Resolved = false;
 
-    public virtual bool IsResolved() { return Resolved; }
+    public virtual bool IsComplete()
+    {
+        if (Resolved) return Resolved;
+        if (gameObject.GetComponent<PersonalNarritive>() != null)
+            return true;
+        return false;
+    }
+
     public virtual void Resolve() { Resolved = true; }
 
     public virtual Objective Transfer(GameObject newParent)
     {
-        var rtn = newParent.AddComponent<Objective>(this);
+        var rtn = newParent.AddComponent(this);
         Destroy(this);
         return rtn;
     }

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IInterestPoint{
-    void Activate(GameObject player);
+public enum ActiveState{
+    Idle,
+    Active,
+    Exhausted
 }
