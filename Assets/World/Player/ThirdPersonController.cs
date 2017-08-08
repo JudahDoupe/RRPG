@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
+public class ThirdPersonController : MonoBehaviour {
 
     public float SpeedMultiplier = 0.25f;
     public float Movement { get { return Input.GetAxis("Vertical") * SpeedMultiplier; } }
