@@ -29,9 +29,9 @@ public class Trigger : MonoBehaviour {
             case ETriggerActions.Proximity:
                 return Vector3.Distance(Target.transform.position, transform.position) <= Proximity;
             case ETriggerActions.LeftClick:
-                return FW_MouceOver.Instance.Object != null && FW_MouceOver.Instance.Object.Equals(transform) && Input.GetMouseButtonDown(0);
+                return FW_Cursor.Instance.HoverObject != null && FW_Cursor.Instance.HoverObject.Equals(transform) && Input.GetMouseButtonDown(0);
             case ETriggerActions.RightClick:
-                return FW_MouceOver.Instance.Object != null && FW_MouceOver.Instance.Object.Equals(transform) && Input.GetMouseButtonDown(1);
+                return FW_Cursor.Instance.HoverObject != null && FW_Cursor.Instance.HoverObject.Equals(transform) && Input.GetMouseButtonDown(1);
             case ETriggerActions.E:
                 return Vector3.Distance(Target.transform.position, transform.position) <= Proximity && Input.GetButtonDown("E");
         }

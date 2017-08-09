@@ -12,8 +12,7 @@ public class FirstPersonController : MonoBehaviour {
     public void Start()
     {
         _rb = gameObject.GetComponentOrAdd<Rigidbody>();
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        FW_Cursor.Instance.IsLocked = true;
     }
 
     public void FixedUpdate()
