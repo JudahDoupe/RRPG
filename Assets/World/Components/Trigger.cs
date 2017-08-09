@@ -33,7 +33,7 @@ public class Trigger : MonoBehaviour {
             case ETriggerActions.RightClick:
                 return FW_Cursor.Instance.HoverObject != null && FW_Cursor.Instance.HoverObject.Equals(transform) && Input.GetMouseButtonDown(1);
             case ETriggerActions.E:
-                return Vector3.Distance(Target.transform.position, transform.position) <= Proximity && Input.GetButtonDown("E");
+                return Vector3.Distance(Target.transform.position, transform.position) <= Proximity && Input.GetButtonDown("Interact");
         }
         return false;
     }

@@ -84,7 +84,7 @@
     <Compile Include="Assets\Framework\Enums\ETriggerReactions.cs" />
     <Compile Include="Assets\Framework\Enums\QuestResolutions.cs" />
     <Compile Include="Assets\Framework\ExtentionMeathods\GameObjectExtentions.cs" />
-    <Compile Include="Assets\Framework\Input\FW_Cursor.cs" />
+    <Compile Include="Assets\Framework\FW_Cursor.cs" />
     <Compile Include="Assets\Gameplay\Player\FirstPersonController.cs" />
     <Compile Include="Assets\Gameplay\Player\ThirdPersonController.cs" />
     <Compile Include="Assets\Gameplay\UI\InfoText.cs" />
