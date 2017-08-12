@@ -1,33 +1,30 @@
 ﻿using System.Collections;
-using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class QuestLog : MonoBehaviour {
 
+    [HideInInspector]
     public Inventory Inventory;
     public GameObject Object;
     public List<Quest> Quests = new List<Quest>();
 
-    public void AddQuest(QuestData quest)
+    void Start()
     {
-        var newQuest = QuestFactory.Instance.Build(quest, Object);
-        newQuest.Log = this;
-        Quests.Add(newQuest);
+        Inventory = transform.GetComponent<Inventory>();
     }
 
-    public QuestData RemoveQuest(Quest quest)
+    public void AddQuest(Quest quest)
     {
-        var data = quest.ToData();
+        quest.Log = this;
+        Quests.Add(quest);
+        quest.transform.parent = transform;
+        quest.transform.position = transform.position;
+    }
+
+    public Quest RemoveQuest(Quest quest)
+    {
         Quests.Remove(quest);
-        Destroy(quest);
-        return data;
-    }
-
-    public Quest GetMainQuest()
-    {
-        Quest main = null;
-        Quests.ForEach(q => main = q.NarativeImportance >= main.NarativeImportance ? q : main);
-        return main;
+        return quest;
     }
 }

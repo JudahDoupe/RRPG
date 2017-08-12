@@ -3,21 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour {
+
     public GameObject Object;
     public List<Item> Items = new List<Item>();
 
-    public void AddItem(ItemData item)
+    void Start()
     {
-        var newItem = ItemFactory.Instance.Build(item, Object);
-        newItem.Inventory = this;
-        Items.Add(newItem);
     }
 
-    public ItemData RemoveItem(Item item)
+    public void AddItem(Item item)
     {
-        var data = item.ToData();
+        item.Inventory = this;
+        Items.Add(item);
+        item.transform.parent = transform;
+        item.transform.position = transform.position;
+        item.gameObject.SetActive(false);
+    }
+
+    public Item RemoveItem(Item item)
+    {
         Items.Remove(item);
-        Destroy(item);
-        return data;
+        return item;
     }
 }

@@ -5,73 +5,31 @@ using UnityEngine;
 
 public class Quest : MonoBehaviour {
 
-    public bool Inactive = false;
-
     public QuestLog Log;
 
+    [HideInInspector]
+    public bool IsActive = false;
+    public bool IsComplete = false;
     public string Title;
+    public Trigger ActivationTrigger;
+    public Trigger ResolutionTrigger;
 
-    public Item Reward;
-
-    public bool IsComplete;
-
-    public int NarativeImportance;
-
-    public GameObject Target;
-
-    public float Proximity;
-
-
-
-    public List<QuestResolutions> Resolutions;
-
-
+    
+    void Start()
+    {
+        if(ActivationTrigger == null) IsActive = true;
+    }
 
     public void Update()
     {
-        if ( !Inactive && ShouldResolve())
-            Resolve();
-    }
-
-    public void Resolve()
-    {
-        if(Reward != null)Log.Inventory.AddItem(Reward.ToData());
-        IsComplete = true;
-        Resolutions = new List<QuestResolutions>();
-        Debug.Log("Completed Quest: " + Title);
-    }
-
-    public QuestData ToData()
-    {
-        return new QuestData
+        if (!IsActive)
         {
-            Target = Target,
-            Reward = Reward,
-            NarativeImportance = NarativeImportance,
-            Title = Title,
-            IsComplete = IsComplete,
-            Resolutions = Resolutions,
-        };
-    }
-
-    private bool ShouldResolve()
-    {
-        if (IsComplete) return false;
-
-        var rtn = true;
-        Resolutions.ForEach(r => rtn = IsResolved(r) ? rtn : false);
-
-        return rtn;
-    }
-
-    public bool IsResolved(QuestResolutions type)
-    {
-        if (type == QuestResolutions.OnReceive)
-            return true;
-        if (type == QuestResolutions.OnProximity)
-            return Vector3.Distance(transform.position, Target.transform.position) < Proximity;
-        if (type == QuestResolutions.OnTargetNull)
-            return Target == null;
-        return false;
+            IsActive = ActivationTrigger.IsTripped;
+        }
+        else if (!IsComplete)
+        {
+            if(IsComplete = ResolutionTrigger.IsTripped)
+                Debug.Log("Completed Quest: " + Title);
+        }
     }
 }
