@@ -6,7 +6,7 @@ public class QuestLog : MonoBehaviour {
 
     [HideInInspector]
     public Inventory Inventory;
-    public GameObject Object;
+    public GameObject Storage;
     public List<Quest> Quests = new List<Quest>();
 
     void Start()

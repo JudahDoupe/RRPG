@@ -19,6 +19,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4172430142538116}
+  - component: {fileID: 114737804241510584}
+  - component: {fileID: 114503206793093762}
   m_Layer: 0
   m_Name: IronSword
   m_TagString: Untagged
@@ -86,8 +88,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1063467308899338}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.76, z: 0}
+  m_LocalRotation: {x: -0.6070119, y: -0.2933039, z: -0.7029651, w: 0.22660434}
+  m_LocalPosition: {x: -0.2119999, y: 1.585, z: -0.1079998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4355886505643878}
@@ -95,16 +97,16 @@ Transform:
   - {fileID: 4671814872918932}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -136.57, y: -97.200005, z: -2.959}
 --- !u!4 &4355886505643878
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1757073765807694}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.12102407, y: 0.5, z: 0.12913315}
+  m_LocalScale: {x: 0.12102407, y: 0.5000005, z: 0.12913327}
   m_Children: []
   m_Father: {fileID: 4172430142538116}
   m_RootOrder: 0
@@ -115,9 +117,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1403040599431580}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.873, z: 0}
-  m_LocalScale: {x: 0.14999999, y: 1.2899191, z: 0.024811294}
+  m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0.87300014}
+  m_LocalScale: {x: 0.15000008, y: 1.28992, z: 0.024811309}
   m_Children: []
   m_Father: {fileID: 4172430142538116}
   m_RootOrder: 2
@@ -128,9 +130,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1167828251440590}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.239, z: 0}
-  m_LocalScale: {x: 0.20240746, y: 0.10901493, z: 0.1756813}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0.23900008}
+  m_LocalScale: {x: 0.20240746, y: 0.10901505, z: 0.17568141}
   m_Children: []
   m_Father: {fileID: 4172430142538116}
   m_RootOrder: 1
@@ -148,7 +150,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 18213c201523fdb44af37fbd70baa9c9, type: 2}
+  - {fileID: 2100000, guid: 9f1b837680b4dfc49b50fb29746d0b97, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -180,7 +182,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 18213c201523fdb44af37fbd70baa9c9, type: 2}
+  - {fileID: 2100000, guid: 52f984ed2eaab764db6c83db9beb2045, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -288,3 +290,29 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114503206793093762
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1063467308899338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c04e299f7770d34bb6c2b12befe2a51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114737804241510584
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1063467308899338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cbca06ba5cc74940bba1854342d6e95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Iron Swrod
+  Description: Iron Sword with mahogany handle and birch pommel
+  PrimaryAction: {fileID: 114503206793093762}
+  SecondaryAction: {fileID: 0}

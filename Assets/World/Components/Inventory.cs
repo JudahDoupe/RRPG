@@ -4,25 +4,71 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour {
 
-    public GameObject Object;
+    public bool IsPlayableCharacter = false;
+
+    public GameObject Hand;
+    public Item HeldItem;
+    public GameObject Storage;
     public List<Item> Items = new List<Item>();
 
-    void Start()
+    void Update()
     {
+        if (!IsPlayableCharacter) return;
+
+        var activeSlot = -1;
+
+        if (Input.GetButtonDown("Slot1"))
+            activeSlot = 0;
+        if (Input.GetButtonDown("Slot2"))
+            activeSlot = 1;
+        if (Input.GetButtonDown("Slot3"))
+            activeSlot = 2;
+        if (Input.GetButtonDown("Slot4"))
+            activeSlot = 3;
+
+        if (activeSlot >= 0)
+        {
+            if(Items.Count > activeSlot)
+                HoldItem(Items[activeSlot]);
+            else
+                StoreItem(HeldItem);
+        }
     }
 
-    public void AddItem(Item item)
+    public bool AddItem(Item item)
     {
-        item.Inventory = this;
+        if (Items.Count >= 4) return false;
         Items.Add(item);
-        item.transform.parent = transform;
-        item.transform.position = transform.position;
-        item.gameObject.SetActive(false);
+        StoreItem(item);
+        return true;
     }
 
     public Item RemoveItem(Item item)
     {
-        Items.Remove(item);
-        return item;
+        if (Items.Remove(item))
+            return item;
+        return null;
+    }
+
+    private void HoldItem(Item item)
+    {
+        StoreItem(HeldItem);
+
+        if(item != null)
+        {
+            item.transform.position = Hand.transform.position;
+            item.transform.localEulerAngles = Vector3.zero;
+            item.transform.parent = Hand.transform;
+            item.gameObject.SetActive(true);
+        }
+    }
+
+    private bool StoreItem(Item item)
+    {
+        if (item == null) return false;
+        item.transform.parent = Storage.transform;
+        item.transform.position = transform.position;
+        item.gameObject.SetActive(false);
+        return true;
     }
 }
