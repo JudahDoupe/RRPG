@@ -2,34 +2,40 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// ReSharper disable once CheckNamespace
 public class Movement : MonoBehaviour
 {
-    public bool IsFirstPerson = true;
-    public float LookMultiplier = 2.5f;
     public float SpeedMultiplier = 0.5f;
     public float JumpMultiplier = 2f;
     public float AirFriction = 1f;
 
     private Rigidbody _rb;
 
-    private float momentum = 0f;
-    private float strafe = 0f;
-    private bool isMovementLocked = false;
-    public bool isGrounded{ get{ return Physics.Raycast(transform.position + (Vector3.up * 0.01f), Vector3.down, 0.1f); } }
+    private float _momentum = 0f;
+    private float _strafe = 0f;
+
+    public bool IsMovementLocked { get; set; }
+    public bool IsGrounded
+    {
+        get
+        {
+            return Physics.Raycast(transform.position + (Vector3.up * 0.01f), Vector3.down, 0.1f);
+        }
+    }
     private Vector3 MovementDirection
     {
         get
         {
-            if (!isMovementLocked && isGrounded)
+            if (!IsMovementLocked && IsGrounded)
             {
-                momentum = Input.GetAxis("Vertical") * SpeedMultiplier;
-                strafe = Input.GetAxis("Horizontal") * SpeedMultiplier;
+                _momentum = Input.GetAxis("Vertical") * SpeedMultiplier;
+                _strafe = Input.GetAxis("Horizontal") * SpeedMultiplier;
             }
 
-            momentum = momentum * AirFriction;
-            strafe = strafe * AirFriction; 
+            _momentum = _momentum * AirFriction;
+            _strafe = _strafe * AirFriction; 
 
-            return new Vector3(strafe, 0f, momentum);
+            return new Vector3(_strafe, 0f, _momentum);
         }
     }
 
@@ -40,14 +46,10 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (IsFirstPerson)
-            FirstPersonLook();
-        else
-            ThirdPersonLook();
 
         _rb.MovePosition(transform.TransformDirection(MovementDirection) + transform.position);
 
-        if (Input.GetButton("Jump") && isGrounded)
+        if (Input.GetButton("Jump") && IsGrounded)
             _rb.AddForce(new Vector3(0, 100 * JumpMultiplier, 0), ForceMode.Impulse);
 
         if (Input.GetButtonDown("Interact"))
@@ -56,29 +58,10 @@ public class Movement : MonoBehaviour
         if (Input.GetButton("Crouch"))
             Debug.Log("Crouch Not Implimented");
 
-        if (Input.GetButtonDown("Push") && !isMovementLocked)
+        if (Input.GetButtonDown("Push") && !IsMovementLocked)
             Debug.Log("Push Not Implimented");
 
-        if (Input.GetButtonDown("Dodge") && !isMovementLocked)
+        if (Input.GetButtonDown("Dodge") && !IsMovementLocked)
             Debug.Log("Dodge Not Implimented");
-    }
-
-    void FirstPersonLook()
-    {
-        FW_Cursor.Instance.IsLocked = true;
-
-        var rotation = Input.GetAxis("Mouse X") * LookMultiplier;
-        var pitch = Camera.main.transform.localEulerAngles.x + (Input.GetAxis("Mouse Y") * -LookMultiplier);
-
-        if (pitch >= 180 && pitch < 270) { pitch = 270; }
-        if (pitch > 90 && pitch <= 180) { pitch = 90; }
-
-        Camera.main.transform.localPosition = Vector3.zero;
-        Camera.main.transform.localEulerAngles = new Vector3(pitch, 0, 0);
-        transform.Rotate(new Vector3(0, rotation, 0));
-    }
-    void ThirdPersonLook()
-    {
-        Debug.Log("Third Person Not Implimented");
     }
 }
