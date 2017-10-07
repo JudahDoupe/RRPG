@@ -7,6 +7,7 @@ public class FW_Cursor{
     public static FW_Cursor Instance{ get { return instance ?? new FW_Cursor(); } }
 
     public float LineOfSight = 25;
+    public float Sesitivity = 1;
 
     public bool IsLocked
     {

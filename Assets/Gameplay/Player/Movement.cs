@@ -5,8 +5,8 @@ using UnityEngine;
 // ReSharper disable once CheckNamespace
 public class Movement : MonoBehaviour
 {
-    public float SpeedMultiplier = 0.5f;
-    public float JumpMultiplier = 2f;
+    public float SpeedMultiplier = 1.0f;
+    public float JumpMultiplier = 8f;
     public float AirFriction = 1f;
 
     private Rigidbody _rb;
@@ -28,8 +28,8 @@ public class Movement : MonoBehaviour
         {
             if (!IsMovementLocked && IsGrounded)
             {
-                _momentum = Input.GetAxis("Vertical") * SpeedMultiplier;
-                _strafe = Input.GetAxis("Horizontal") * SpeedMultiplier;
+                _momentum = Input.GetAxis("Vertical") * SpeedMultiplier/10;
+                _strafe = Input.GetAxis("Horizontal") * SpeedMultiplier/10;
             }
 
             _momentum = _momentum * AirFriction;
