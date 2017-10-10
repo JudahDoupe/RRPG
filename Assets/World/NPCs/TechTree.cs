@@ -53,7 +53,7 @@ public class TechTree{
         if(dTech.Job != Job.Unemployed)
             _culture.population.AvailableJobs.Add(dTech.Job);
 
-        Debug.Log("Tech: Discovered " + dTech.Name);
+        //Debug.Log("Tech: Discovered " + dTech.Name);
 
         return dTech;
     }

@@ -7,13 +7,22 @@ public class Movement : MonoBehaviour
 {
     public float SpeedMultiplier = 1.0f;
     public float JumpMultiplier = 8f;
-    public float AirFriction = 1f;
+    public float AirFriction = 0.9f;
 
     private Rigidbody _rb;
+    private Vector3 _movementVector;
+    public Vector3 MovementVector
+    {
+        get
+        {
+            if (!IsMovementLocked || IsGrounded)
+                _movementVector = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical")).normalized * SpeedMultiplier / 10;
+            else
+                _movementVector = _movementVector * AirFriction;
 
-    private float _momentum = 0f;
-    private float _strafe = 0f;
-
+            return _movementVector = Quaternion.AngleAxis(Camera.main.transform.eulerAngles.y, Vector3.up) * _movementVector; ;
+        }
+    }
     public bool IsMovementLocked { get; set; }
     public bool IsGrounded
     {
@@ -22,22 +31,8 @@ public class Movement : MonoBehaviour
             return Physics.Raycast(transform.position + (Vector3.up * 0.01f), Vector3.down, 0.1f);
         }
     }
-    private Vector3 MovementDirection
-    {
-        get
-        {
-            if (!IsMovementLocked && IsGrounded)
-            {
-                _momentum = Input.GetAxis("Vertical") * SpeedMultiplier/10;
-                _strafe = Input.GetAxis("Horizontal") * SpeedMultiplier/10;
-            }
 
-            _momentum = _momentum * AirFriction;
-            _strafe = _strafe * AirFriction; 
 
-            return new Vector3(_strafe, 0f, _momentum);
-        }
-    }
 
     public void Start()
     {
@@ -47,13 +42,12 @@ public class Movement : MonoBehaviour
     void FixedUpdate()
     {
 
-        _rb.MovePosition(transform.TransformDirection(MovementDirection) + transform.position);
+        _rb.MovePosition( MovementVector + transform.position);
+
+        transform.LookAt(MovementVector.normalized + transform.position);
 
         if (Input.GetButton("Jump") && IsGrounded)
             _rb.AddForce(new Vector3(0, 100 * JumpMultiplier, 0), ForceMode.Impulse);
-
-        if (Input.GetButtonDown("Interact"))
-            FW_Cursor.Instance.HoverObject.SendMessage("Interact",SendMessageOptions.DontRequireReceiver);
 
         if (Input.GetButton("Crouch"))
             Debug.Log("Crouch Not Implimented");

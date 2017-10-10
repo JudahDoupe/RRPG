@@ -2010,7 +2010,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpeedMultiplier: 1
   JumpMultiplier: 8
-  AirFriction: 1
+  AirFriction: 0.9
 --- !u!114 &775871534
 MonoBehaviour:
   m_ObjectHideFlags: 0

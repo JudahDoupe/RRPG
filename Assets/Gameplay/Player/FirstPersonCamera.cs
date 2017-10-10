@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// ReSharper disable once CheckNamespace
 public class FirstPersonCamera : MonoBehaviour {
 
     public float LookMultiplier = 2.5f;
 
-    void Update () {
-	    FW_Cursor.Instance.IsLocked = true;
+    void FixedUpdate () {
+        if (Input.GetButtonDown("Interact"))
+            FW_Cursor.Instance.HoverObject.SendMessage("Interact", SendMessageOptions.DontRequireReceiver);
+
+        FW_Cursor.Instance.IsLocked = true;
 
 	    var rotation = Input.GetAxis("Mouse X") * LookMultiplier;
 	    var pitch = Camera.main.transform.localEulerAngles.x + (Input.GetAxis("Mouse Y") * -LookMultiplier);

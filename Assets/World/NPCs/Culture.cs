@@ -30,10 +30,11 @@ public class Culture : MonoBehaviour {
         if(resources.food > population.Count)
             technology.DiscoverRanomTech();
 
-
+        /*
         Debug.Log("Population = " + population.Count +
             "\nFood = " + resources.food +
             "\nHouses = " + resources.houses +
             "\nLand = " + resources.land);
+        */
     }
 }

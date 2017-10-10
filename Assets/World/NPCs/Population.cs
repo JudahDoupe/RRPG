@@ -20,7 +20,7 @@ public class Population {
     {
         var job = NeededJob();
         _people.Add(new Person { name = name, job = job });
-        Debug.Log("Pop: "+name + " was born a " + job);
+        //Debug.Log("Pop: "+name + " was born a " + job);
     }
     public void KillPerson(string name)
     {
